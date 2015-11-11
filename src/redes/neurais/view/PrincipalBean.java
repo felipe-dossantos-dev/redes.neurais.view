@@ -20,7 +20,9 @@ public class PrincipalBean {
     private final IntegerProperty camadaEntrada;
     private final IntegerProperty camadaOculta;
     private final IntegerProperty camadaSaida;
-
+    private final DoubleProperty taxaAprendizagem;
+    private final DoubleProperty linear;
+    
     public PrincipalBean() {
         funcaoSaida = new SimpleStringProperty();
         iteracao = new SimpleIntegerProperty();
@@ -28,6 +30,8 @@ public class PrincipalBean {
         camadaEntrada = new SimpleIntegerProperty();
         camadaOculta = new SimpleIntegerProperty();
         camadaSaida = new SimpleIntegerProperty();
+        taxaAprendizagem = new SimpleDoubleProperty();
+        linear = new SimpleDoubleProperty();
     }
 
     public String getFuncaoSaida() {
@@ -102,4 +106,27 @@ public class PrincipalBean {
         return camadaSaida;
     }
 
+    public double getTaxaAprendizagem() {
+        return taxaAprendizagem.get();
+    }
+
+    public void setTaxaAprendizagem(double value) {
+        taxaAprendizagem.set(value);
+    }
+
+    public DoubleProperty taxaAprendizagemProperty() {
+        return taxaAprendizagem;
+    }
+    
+    public double getLinear() {
+        return linear.get();
+    }
+
+    public void setLinear(double value) {
+        linear.set(value);
+    }
+
+    public DoubleProperty linearProperty() {
+        return linear;
+    }
 }

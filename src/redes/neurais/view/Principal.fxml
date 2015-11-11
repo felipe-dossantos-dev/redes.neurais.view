@@ -8,19 +8,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="redes.neurais.view.PrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="redes.neurais.view.PrincipalController">
    <children>
-      <BorderPane layoutX="4.0" layoutY="2.0" prefHeight="298.0" prefWidth="377.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane  layoutX="4.0" layoutY="2.0" prefHeight="298.0" prefWidth="377.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <MenuBar BorderPane.alignment="CENTER">
               <menus>
                 <Menu mnemonicParsing="false" text="Arquivo">
-                  <items>
-                    <MenuItem fx:id="menuTreino" mnemonicParsing="false" onAction="#clickArquivoTreino" text="Treino..." />
+                    <items>
+                        <MenuItem fx:id="menuTreino" mnemonicParsing="false" onAction="#clickArquivoTreino" text="Treino..." />
                         <MenuItem fx:id="menuTeste" mnemonicParsing="false" onAction="#clickArquivoTeste" text="Teste..." />
-                  </items>
+                    </items>
                 </Menu>
-                <Menu fx:id="menuSair" mnemonicParsing="false" onAction="#clickSair" text="Sair" />
+                <Menu fx:id="menuSair" mnemonicParsing="false" text="Sair">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#clickSair" text="Sair" />
+                    </items>
+                </Menu>
               </menus>
             </MenuBar>
          </top>
@@ -28,13 +32,17 @@
             <VBox prefHeight="370.0" prefWidth="180.0" spacing="3.0" BorderPane.alignment="CENTER">
                <children>
                   <Label text="Função de Saída" />
-                  <RadioButton fx:id="rdLinear" mnemonicParsing="false" text="Linear" />
-                  <RadioButton fx:id="rdLogistica" mnemonicParsing="false" text="Logística" />
-                  <RadioButton fx:id="rdTanHiperbolica" mnemonicParsing="false" text="Tangente Hiperbólica" />
+                  <RadioButton fx:id="rdLinear" mnemonicParsing="false" text="Linear" onAction="#clickLinear"/>
+                  <RadioButton fx:id="rdLogistica" mnemonicParsing="false" text="Logística" onAction="#clickLinear"/>
+                  <RadioButton fx:id="rdTanHiperbolica" mnemonicParsing="false" text="Tangente Hiperbólica" onAction="#clickLinear"/>
+                  <Label text="Valor Função Linear" />
+                  <TextField fx:id="txtLinear" />
                   <Label text="Iterações" />
                   <TextField fx:id="txtIteracao" />
                   <Label text="Erro" />
                   <TextField fx:id="txtErro" />
+                  <Label text="Taxa Aprendizagem" />
+                  <TextField fx:id="txtAprendizagem" />
                   <Label text="Camada de Entrada" />
                   <TextField fx:id="txtEntrada" />
                   <Label text="Camada Oculta" />
@@ -82,14 +90,14 @@
                         <Label fx:id="txtTeste" text="..." />
                      </children>
                   </HBox>
-                  <BarChart fx:id="chartTreino">
+                  <LineChart fx:id="chartTreino">
                     <xAxis>
-                      <CategoryAxis fx:id="iteracaoAxis" side="BOTTOM" />
+                      <NumberAxis fx:id="iteracaoAxis" side="BOTTOM" />
                     </xAxis>
                     <yAxis>
                       <NumberAxis fx:id="valorAxis" side="LEFT" />
                     </yAxis>
-                  </BarChart>
+                  </LineChart>
                </children>
             </VBox>
          </center>
