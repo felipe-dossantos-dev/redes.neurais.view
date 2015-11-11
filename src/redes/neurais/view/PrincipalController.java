@@ -9,7 +9,7 @@ import br.fipp.funcao.saida.FuncaoLinear;
 import br.fipp.funcao.saida.FuncaoLogistica;
 import br.fipp.funcao.saida.FuncaoSaida;
 import br.fipp.funcao.saida.FuncaoTangenteHiperb;
-import br.fipp.rede.LeitorEntradasCSV;
+import br.fipp.entrada.LeitorEntradasCSV;
 import br.fipp.rede.RedeNeural;
 import java.io.File;
 import java.io.IOException;
