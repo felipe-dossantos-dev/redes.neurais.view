@@ -10,6 +10,7 @@ import br.fipp.funcao.saida.FuncaoLogistica;
 import br.fipp.funcao.saida.FuncaoSaida;
 import br.fipp.funcao.saida.FuncaoTangenteHiperb;
 import br.fipp.entrada.LeitorEntradasCSV;
+import br.fipp.entrada.MatrizConfusao;
 import br.fipp.rede.RedeNeural;
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +22,10 @@ import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -186,9 +190,21 @@ public class PrincipalController implements Initializable {
 
     @FXML
     void clickTestar(ActionEvent event) {
+        MatrizConfusao mat = null;
         try {
+            
             LeitorEntradasCSV le = new LeitorEntradasCSV(txtTeste.getText());
             this.rede.avaliar(le);
+            mat = rede.getMatrizConfusao();
+            
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Saida.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            SaidaController sc = (SaidaController) fxmlLoader.getController();
+            sc.setFilePath(txtTeste.getText());
+            sc.setMatConfusao(mat);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
         } catch (Exception ex) {
             dialogErro(ex);
         }

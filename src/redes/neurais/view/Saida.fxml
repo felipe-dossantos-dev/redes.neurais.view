@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="redes.neurais.view.SaidaController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="375.0" layoutY="150.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
+               <children>
+                  <Label text="Avaliaçao das entradas em:" />
+                  <Label fx:id="lblArquivo" text="Arquivo" />
+               </children>
+            </HBox>
+            <TableView fx:id="tabela" prefHeight="460.0" prefWidth="790.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
